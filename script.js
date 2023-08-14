@@ -1,60 +1,55 @@
-const valArr = ["rock" , "paper", "scissor"] ; 
-let playerScore = 0 , 
-    computerScore = 0 ; 
-    
-//random value generator 
+//random Choice generator 
+const choicesArray = ["rock" , "paper", "scissor"] ; 
+let computerScore = 0 , playerScore = 0 ; 
 function computerChoice(){ 
-    return valArr[Math.floor(Math.random()* valArr.length)];
+    return choicesArray[Math.floor(Math.random()* choicesArray.length)];
 }
  
 //all possible cases 
-function gameRes(playerSelection , computerSelection){ 
-     if(playerSelection === "") {
+function playRound(playerSelect, computerSelect){ 
+     if(playerSelect === "") {
         console.log("you entered nothing");
         return ; 
-    }else if(playerSelection === computerSelection){
+    }else if(playerSelect=== computerSelect){
         return `Tie Game`; 
-    }else if (playerSelection === "rock" && computerSelection ==="scissor"){
+    }else if (playerSelect === "rock" && computerSelect ==="scissor"){
         playerScore++ ; 
         return `Player won` ; 
-    }else if (playerSelection === "paper" && computerSelection ==="rock"){
+    }else if (playerSelect === "paper" && computerSelect ==="rock"){
         playerScore++ ;
         return `Player won` ; 
-    }else if (playerSelection === "scissor" && computerSelection ==="paper"){
+    }else if (playerSelect === "scissor" && computerSelect ==="paper"){
         playerScore++ ;
         return `Player won` ; 
-    }else if (playerSelection === "paper" && computerSelection ==="scissor"){
+    }else if (playerSelect === "paper" && computerSelect ==="scissor"){
         computerScore++ ;
         return `Computer won` ; 
-    }else if (playerSelection === "scissor" && computerSelection ==="rock"){
+    }else if (playerSelect === "scissor" && computerSelect ==="rock"){
         computerScore++ ;
         return `Computer won` ; 
-    }else if (playerSelection === "rock" && computerSelection ==="paper"){
+    }else if (playerSelect === "rock" && computerSelect ==="paper"){
         computerScore++ ;
         return `Computer won` ; 
     }else{
         return ; 
     }
 }
-
-// the one who get 5 point first wins 
-function game(){
-   do{
-    const playerSelection= prompt("enter your choice").toLocaleLowerCase() ; 
-    let computerSelection = computerChoice() ;   
-    console.log(gameRes(playerSelection , computerSelection)) ; 
-    console.log(`current player score: ${playerScore} || current computer Score ${computerScore}`);       
-   }while(playerScore < 5 && computerScore < 5); 
-
-   console.log("#################################################"); 
-   console.log(`final player score: ${playerScore} final computer score ${computerScore}`); 
-
-   //Evaluating The game 
-   if(playerScore === 5){
-    return `you won`; 
-   }else if (computerScore === 5){
-    return `You lost`; 
-   }
+function itIsFive(event){
+    event.preventDefault(); 
 }
-
-console.log(game()); 
+const buttonSelect = document.querySelectorAll("button"); 
+buttonSelect.forEach((button) =>{
+    button.addEventListener("click", (e)=> {
+        let computerSelection = computerChoice() ; 
+        let playerSelection = button.getAttribute("data-value"); 
+        let display = document.createElement("p"); 
+        display.textContent = playRound(playerSelection , computerSelection); 
+        const sec = document.querySelector("body"); 
+        sec.setAttribute("class" , "displayStyle"); 
+        sec.appendChild(display);
+        if(playerScore===5 || computerScore===5){
+            itIsFive(e); 
+        }  
+    }) 
+})
+ 
