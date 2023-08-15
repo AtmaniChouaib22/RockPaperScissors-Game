@@ -2,31 +2,43 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Mitr', sans-serif;
+font-family: 'Paytone One', sans-serif;
+font-family: 'Rubik', sans-serif;
 }
-section {
+.main{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+}
+h3{
+    font-size: 4rem;
+}
+.content{
+    display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
-    gap: 50px;
-    background-color: aliceblue;
+    border: 1px black solid;
 }
+.cards-container {
+    display: flex;
+    border: 1px black solid;
+    justify-content: space-around;
 
-h1 {
-    font-size: 80px;
 }
-
-button {
-    width: 100px;
-    height: 50px;
+.button-container {
+    display: flex;
+    border: 1px black solid;
+    justify-content: space-evenly;
+}
+.rock , .paper ,.scissor {
+    font-size: 6rem;
+}
+.status {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 4rem;
 }
-
-p{
-    padding-bottom: 10px;
-    font-size: 20px;
-    word-spacing: 5px;
-    text-align: start;
+.pshow-box , .pcshow-box {
+    font-size: 7rem;
 }
