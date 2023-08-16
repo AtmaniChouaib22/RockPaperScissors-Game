@@ -3,14 +3,15 @@
     padding: 0;
     margin: 0;
     font-family: 'Mitr', sans-serif;
-font-family: 'Paytone One', sans-serif;
-font-family: 'Rubik', sans-serif;
+    font-family: 'Paytone One', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 .main{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(90deg, rgba(255,218,252,1) 3%, rgba(203,218,255,1) 100%);
 }
 h3{
     font-size: 4rem;
@@ -19,26 +20,59 @@ h3{
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    border: 1px black solid;
+    background: linear-gradient(to bottom right, rgba(255,164,248,1) 0%, rgba(80,130,255,1) 100%);
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+    padding: 2rem;
+}
+h1{
+    padding-bottom: 8rem;
+    font-size: 4rem;
 }
 .cards-container {
     display: flex;
-    border: 1px black solid;
     justify-content: space-around;
 
 }
 .button-container {
     display: flex;
-    border: 1px black solid;
     justify-content: space-evenly;
 }
 .rock , .paper ,.scissor {
     font-size: 6rem;
 }
+.scissor:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+.rock:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: 0.3s;
+}
+.paper:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: 0.3s;
+}
+
 .status {
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
+    padding: 1.6rem;
+}
+.pc , .player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 .pshow-box , .pcshow-box {
     font-size: 7rem;
+}
+.pshowcount , .pcshowcount {
+    text-align: center;
+    font-size: 3rem;
 }

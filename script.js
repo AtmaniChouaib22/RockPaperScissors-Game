@@ -29,33 +29,33 @@ function randomChoice(){
 
 function playRound(playerSelection , pcSelection){
     if(playerSelection === pcSelection){
-        return `tie Game`; 
+        return `tie Game 😑`; 
     }else if(playerSelection === "rock" && pcSelection === "scissor"){
         playerScore++ ; 
-        return `player won`; 
+        return `player won 😎`; 
     }else if(playerSelection === "paper" && pcSelection === "rock"){
         playerScore++ ; 
-        return `player won`; 
+        return `player won 😎`; 
     }else if(playerSelection === "scissor" && pcSelection === "paper"){
         playerScore++ ; 
-        return `player won`; 
+        return `player won 😎`; 
     }else if(playerSelection === "rock" && pcSelection === "paper"){
         pcScore++ ; 
-        return `pc won`; 
+        return `pc won 💻`; 
     }else if(playerSelection === "paper" && pcSelection === "scissor"){
         pcScore++ ; 
-        return `pc won`; 
+        return `pc won 💻`; 
     }else if(playerSelection === "scissor" && pcSelection === "rock"){
         pcScore++ ; 
-        return `pc won`; 
+        return `pc won 💻`; 
     }
 }; 
 
 function findWinner(){
     if(playerScore ===5 ){ 
-        return `Player is the winner` ; 
+        return `You won the Game 🦸` ; 
     }else if(pcScore === 5){
-        return `pc is the winner`; 
+        return `You lost Looser 👎`; 
     }else{
         return ;
     }
@@ -64,10 +64,14 @@ function reset(){
     playerScore = 0 ; 
     pcScore = 0 ; 
     winner = ''; 
+    pcShowScore.textContent = pcScore ; 
+    playerShowScore.textContent = playerScore; 
+    playerShowBox.innerHTML = '<p>❔</p>';
+    pcShowBox.innerHTML = '<p>❔</p>' ; 
 }
 
 //if user selected the rock 
-rockButton.addEventListener("click", ()=>{
+function rockFunc(){
     let playerSelected = "rock"; // setting player selection
     let pcSelected = randomChoice(); //setting pc selection 
     playerShowBox.innerHTML = '<p>🪨</p>'; //appending selected emo on screen
@@ -77,15 +81,15 @@ rockButton.addEventListener("click", ()=>{
     statusDisplay.textContent = roundWinner;  //appendng roundwinner
     let winner = findWinner();         //checking for winner
 
-    if(playerScore === 5 || pcScore === 5){    //checking for game end
-        statusDisplay.textContent = winner;   //appending final winner to status
-        reset(); 
-        return; 
+    if(playerScore ===  5|| pcScore === 5){    //checking for game end
+        statusDisplay.textContent = winner;   //appending final winner to status 
+        setTimeout(reset, 5000) ;
     }
-}); 
+};
+rockButton.addEventListener("click", rockFunc); 
 
 //if player selected paper 
-paperButton.addEventListener("click", ()=>{
+function paperFunc(){
     let playerSelected = "rock"; // setting player selection
     let pcSelected = randomChoice(); //setting pc selection 
     playerShowBox.innerHTML = '<p>🧻</p>'; //appending selected emo on screen
@@ -96,15 +100,15 @@ paperButton.addEventListener("click", ()=>{
     let winner = findWinner();         //checking for winner
 
     if(playerScore === 5 || pcScore === 5){    //checking for game end
-        statusDisplay.textContent = winner;   //appending final winner to status
-        reset(); 
-        return; 
+        statusDisplay.textContent = winner;   //appending final winner to status 
+        setTimeout(reset, 5000) ;
     }
-}); 
+};
+
+paperButton.addEventListener("click", paperFunc); 
 
 //if player selected scissor 
-
-scissorButton.addEventListener("click", ()=>{
+function scissorFunc(){
     let playerSelected = "rock"; // setting player selection
     let pcSelected = randomChoice(); //setting pc selection 
     playerShowBox.innerHTML = '<p>✂️</p>'; //appending selected emo on screen
@@ -115,8 +119,9 @@ scissorButton.addEventListener("click", ()=>{
     let winner = findWinner();         //checking for winner
 
     if(playerScore === 5 || pcScore === 5){    //checking for game end
-        statusDisplay.textContent = winner;   //appending final winner to status
-        reset(); 
-        return; 
+        statusDisplay.textContent = winner;  //appending final winner to status 
+        setTimeout(reset, 5000) ; 
     }
-}); 
+};
+
+scissorButton.addEventListener("click",paperFunc); 
