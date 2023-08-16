@@ -59,7 +59,8 @@ function findWinner(){
     }else{
         return ;
     }
-}
+};
+//clear and rset resault of the game 
 function reset(){
     playerScore = 0 ; 
     pcScore = 0 ; 
@@ -68,7 +69,21 @@ function reset(){
     playerShowScore.textContent = playerScore; 
     playerShowBox.innerHTML = '<p>❔</p>';
     pcShowBox.innerHTML = '<p>❔</p>' ; 
+    statusDisplay.textContent = "choose To play Again";
+    statusDisplay.classList.toggle("onwinpop") ; 
+    //inabele events again 
+    rockButton.addEventListener("click" , rockFunc);
+    paperButton.addEventListener("click",paperFunc);
+    scissorButton.addEventListener("click" ,scissorFunc);
+
 }
+
+function endGame(){
+    rockButton.removeEventListener("click" , rockFunc);
+    paperButton.removeEventListener("click",paperFunc);
+    scissorButton.removeEventListener("click" ,scissorFunc);
+    setTimeout(reset , 5000);  
+};
 
 //if user selected the rock 
 function rockFunc(){
@@ -79,29 +94,31 @@ function rockFunc(){
     playerShowScore.textContent = playerScore ; //appending score
     pcShowScore.textContent = pcScore ; 
     statusDisplay.textContent = roundWinner;  //appendng roundwinner
-    let winner = findWinner();         //checking for winner
+    let winner = findWinner(); //checking for winner
 
     if(playerScore ===  5|| pcScore === 5){    //checking for game end
+        statusDisplay.classList.toggle("onwinpop"); 
         statusDisplay.textContent = winner;   //appending final winner to status 
-        setTimeout(reset, 5000) ;
+        endGame(); 
     }
 };
 rockButton.addEventListener("click", rockFunc); 
 
 //if player selected paper 
 function paperFunc(){
-    let playerSelected = "rock"; // setting player selection
+    let playerSelected = "paper"; // setting player selection
     let pcSelected = randomChoice(); //setting pc selection 
     playerShowBox.innerHTML = '<p>🧻</p>'; //appending selected emo on screen
     let roundWinner = playRound(playerSelected , pcSelected); //starting the game 
     playerShowScore.textContent = playerScore ; //appending score
     pcShowScore.textContent = pcScore ; 
     statusDisplay.textContent = roundWinner;  //appendng roundwinner
-    let winner = findWinner();         //checking for winner
+    let winner = findWinner(); //checking for winner
 
     if(playerScore === 5 || pcScore === 5){    //checking for game end
+        statusDisplay.classList.toggle("onwinpop") ; 
         statusDisplay.textContent = winner;   //appending final winner to status 
-        setTimeout(reset, 5000) ;
+        endGame(); 
     }
 };
 
@@ -109,19 +126,20 @@ paperButton.addEventListener("click", paperFunc);
 
 //if player selected scissor 
 function scissorFunc(){
-    let playerSelected = "rock"; // setting player selection
+    let playerSelected = "scissor"; // setting player selection
     let pcSelected = randomChoice(); //setting pc selection 
     playerShowBox.innerHTML = '<p>✂️</p>'; //appending selected emo on screen
     let roundWinner = playRound(playerSelected , pcSelected); //starting the game 
     playerShowScore.textContent = playerScore ; //appending score
     pcShowScore.textContent = pcScore ; 
     statusDisplay.textContent = roundWinner;  //appendng roundwinner
-    let winner = findWinner();         //checking for winner
+    let winner = findWinner();  //checking for winner
 
-    if(playerScore === 5 || pcScore === 5){    //checking for game end
+    if(winner != undefined){    //checking for game end
+        statusDisplay.classList.toggle("onwinpop") ; 
         statusDisplay.textContent = winner;  //appending final winner to status 
-        setTimeout(reset, 5000) ; 
+        endGame(); 
     }
 };
 
-scissorButton.addEventListener("click",paperFunc); 
+scissorButton.addEventListener("click",scissorFunc); 

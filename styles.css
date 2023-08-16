@@ -9,9 +9,14 @@
 .main{
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(90deg, rgba(255,218,252,1) 3%, rgba(203,218,255,1) 100%);
+    gap: 2rem;
+}
+.footer {
+    font-size: 1.3rem;
 }
 h3{
     font-size: 4rem;
@@ -75,4 +80,12 @@ h1{
 .pshowcount , .pcshowcount {
     text-align: center;
     font-size: 3rem;
+    color: aliceblue;
 }
+
+.onwinpop{
+    color: white;
+    transform: scale(1.2);
+    transition: 3000ms;
+}
+
