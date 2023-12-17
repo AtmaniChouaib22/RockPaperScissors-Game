@@ -6,45 +6,53 @@
     font-family: 'Paytone One', sans-serif;
     font-family: 'Rubik', sans-serif;
 }
-.main{
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255,218,252,1) 3%, rgba(203,218,255,1) 100%);
     height: 100vh;
+}
+.main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, rgba(255,218,252,1) 3%, rgba(203,218,255,1) 100%);
-    gap: 2rem;
+    gap: 1rem;
+    width: 500px;
 }
 .footer {
     font-size: 1.3rem;
 }
 h3{
-    font-size: 4rem;
+    font-size: 2rem;
 }
 .content{
+    margin-top: 2rem;
     display: flex;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: center;
     flex-direction: column;
     background: linear-gradient(to bottom right, rgba(255,164,248,1) 0%, rgba(80,130,255,1) 100%);
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
     border-radius: 2rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 h1{
-    padding-bottom: 8rem;
-    font-size: 4rem;
+    padding-bottom: 1rem;
+    font-size: 3rem;
+    text-align: center;
 }
 .cards-container {
     display: flex;
     justify-content: space-around;
-
 }
 .button-container {
     display: flex;
     justify-content: space-evenly;
 }
 .rock , .paper ,.scissor {
-    font-size: 6rem;
+    font-size: 4rem;
 }
 .scissor:hover {
     cursor: pointer;
@@ -64,18 +72,18 @@ h1{
 
 .status {
     text-align: center;
-    font-size: 3rem;
-    padding: 1.6rem;
+    font-size: 2rem;
+    padding: 1rem;
 }
 .pc , .player{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    
 }
 .pshow-box , .pcshow-box {
-    font-size: 7rem;
+    font-size: 5rem;
 }
 .pshowcount , .pcshowcount {
     text-align: center;
@@ -87,5 +95,10 @@ h1{
     color: white;
     transform: scale(1.2);
     transition: 3000ms;
+}
+.Link {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
 

@@ -17,7 +17,7 @@ function randomChoice(){
     let pcSelection = choicesArray[Math.floor(Math.random()* choicesArray.length)];
 
     if(pcSelection === 'rock'){
-        pcShowBox.innerHTML = '<p>🪨</p>' ; 
+        pcShowBox.innerHTML = '<p>🧱</p>' ; 
     }else if(pcSelection === "paper"){
         pcShowBox.innerHTML = '<p>🧻</p>' ;
     }else if(pcSelection === 'scissor'){
@@ -89,7 +89,7 @@ function endGame(){
 function rockFunc(){
     let playerSelected = "rock"; // setting player selection
     let pcSelected = randomChoice(); //setting pc selection 
-    playerShowBox.innerHTML = '<p>🪨</p>'; //appending selected emo on screen
+    playerShowBox.innerHTML = '<p>🧱</p>'; //appending selected emo on screen
     let roundWinner = playRound(playerSelected , pcSelected); //starting the game 
     playerShowScore.textContent = playerScore ; //appending score
     pcShowScore.textContent = pcScore ; 
