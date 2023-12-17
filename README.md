@@ -1,3 +1,3 @@
 # RockPaperScissors-Game
-Rock paper scissors game 
+<a href="https://rockpaperrrscissorrr.netlify.app/">view live</a>
 <img src="game.png">
